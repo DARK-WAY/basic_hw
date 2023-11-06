@@ -41,14 +41,22 @@ public class MainApp {
         if (sumSecondLine > 0) {
             System.out.println("Сумма второй строки = " + sumSecondLine);
         } else System.out.println("Вторая строка  не существует");
+
+        sumSecondLine = sumSecond(new int[][]{{1, 2, 3, 4}});
+        if (sumSecondLine > 0) {
+            System.out.println("Сумма второй строки = " + sumSecondLine);
+        } else System.out.println("Вторая строка  не существует");
     }
 
     public static int sumSecond(int[][] array) {
         // 5 Реализуйте метод, который считает сумму элементов второй строки или столбца двумерного массива (по
         //    вашему выбору), если второй строки/столбца не существует, то в качестве результата необходимо вернуть -1
-        int sum = 0;
+        int sum = -1;
+
+        if (array.length <= 1) {
+            return sum;
+        }
         if (array[1].length == 0) {
-            sum = -1;
             return sum;
         }
         // посчитаем сумму 2 строки , а по индексу 1 .
@@ -99,9 +107,13 @@ public class MainApp {
     public static void squareStarPrint(int size) {
         //2 Реализовать метод, который принимает в качестве аргумента int size и печатает в консоль квадрат из
         //символов * со сторонами соответствующей длины;
-        char[][] array = new char[size][size];
-        initArrayChar('*', array);
-        printArrayChar(array);
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                System.out.print("*  ");
+            }
+            System.out.println();
+        }
+
     }
 
     public static int sumOfPositiveElements(int[][] array) {
