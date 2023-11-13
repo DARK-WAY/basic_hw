@@ -11,20 +11,20 @@ public class Box {
 //    или выкидывать его оттуда (только если предмет в ней есть),
 //    только при условии что коробка открыта (предметом читаем просто строку).
 //    Выполнение методов должно сопровождаться выводом сообщений в консоль.
-    private int sizeWidth;
-    private int sizeHeight;
-    private int sizeDepth;
+    final int width;
+    final int height;
+    final int depth;
     private String color;
-    public boolean status;
+    private boolean isOpened;
     private boolean empty = true;
 
     // Конструктор
-    public Box(int sizeWidth, int sizeHeight, int sizeDepth, String color, boolean status) {
-        this.sizeWidth = sizeWidth;
-        this.sizeHeight = sizeHeight;
-        this.sizeDepth = sizeDepth;
+    public Box(int width, int height, int depth, String color, boolean isOpened) {
+        this.width = width;
+        this.height = height;
+        this.depth = depth;
         this.color = color;
-        this.status = status;
+        this.isOpened = isOpened;
     }
 
     //setter-ы
@@ -37,38 +37,38 @@ public class Box {
     //методы
 //    У коробки должен быть метод, печатающий информацию о ней в консоль.
     public void info() {
-        String statusNow = "Закрыта";
-        if (this.status) {
-            statusNow = "Открыта";
+        String isOpenedNow = "Закрыта";
+        if (this.isOpened) {
+            isOpenedNow = "Открыта";
         }
 
         if (this.empty){
-            statusNow += ", пустая .";
+            isOpenedNow += ", пустая .";
         }
         else {
-            statusNow += ", заполнена.";
+            isOpenedNow += ", заполнена.";
         }
 
-        System.out.println("Коробка: ширина= " + this.sizeWidth + ", высота= " + this.sizeHeight + ", глубина= " +
-                this.sizeDepth + ", цвет коробки = " + this.color + ", состояние = " + statusNow );
+        System.out.println("Коробка: ширина= " + this.width + ", высота= " + this.height + ", глубина= " +
+                this.depth + ", цвет коробки = " + this.color + ", состояние = " + isOpenedNow );
     }
 
     //    Коробку можно открывать и закрывать.
     public void open() {
-        if (status) {
+        if (isOpened) {
             System.out.println("Коробка уже открыта");
         } else {
             System.out.println("Коробка открыта");
-            status = true;
+            isOpened = true;
         }
     }
 
     public void close() {
-        if (!status) {
+        if (!isOpened) {
             System.out.println("Коробка уже закрыта");
         } else {
             System.out.println("Коробка закрыта");
-            status = false;
+            isOpened = false;
         }
     }
 
@@ -76,12 +76,12 @@ public class Box {
 //    или выкидывать его оттуда (только если предмет в ней есть),
 //    только при условии что коробка открыта (предметом читаем просто строку).
     public void inPut() {
-        if (this.empty && this.status) {
+        if (this.empty && this.isOpened) {
             this.empty = false;
             System.out.println("Коробка заполнена.");
         } else {
             if (!this.empty) System.out.print("Коробка уже заполнена.");
-            if (!this.status) System.out.println("Коробка закрыта. Откройте ее.");
+            if (!this.isOpened) System.out.println("Коробка закрыта. Откройте ее.");
         }
 
     }
