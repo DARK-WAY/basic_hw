@@ -36,7 +36,7 @@ public class Plate {
         int foodCalc = foodCurrent - food;
         if (food == 0) {
             System.out.println("Печалька. Нет порции.");
-            return true;
+            return false;
         }
         if (foodCalc < 0) {
             System.out.println("Жалко, что нельзя в кредит покушать.");
