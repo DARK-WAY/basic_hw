@@ -1,10 +1,10 @@
 package ru.otus.basic.hws.hw12.plates;
 
-public class Plates {
+public class Plate {
     private final int foodMax;
     private int foodCurrent;
 
-    public Plates(int foodMax) {
+    public Plate(int foodMax) {
         this.foodMax = foodMax;
         this.foodCurrent = foodMax;
     }
@@ -22,7 +22,7 @@ public class Plates {
             return;
         }
         if (foodCalc > foodMax) {
-            System.out.println("Еды не влезла. Замените на тазик.");
+            System.out.println("Еды не влезло. Замените на тазик.");
             return;
         }
         foodCurrent += food;

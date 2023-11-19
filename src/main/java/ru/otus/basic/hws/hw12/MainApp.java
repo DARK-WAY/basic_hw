@@ -1,11 +1,11 @@
 package ru.otus.basic.hws.hw12;
 
 import ru.otus.basic.hws.hw12.cats.Cat;
-import ru.otus.basic.hws.hw12.plates.Plates;
+import ru.otus.basic.hws.hw12.plates.Plate;
 
 public class MainApp {
     public static void main(String[] args) {
-        Plates plate1 = new Plates(20);
+        Plate plate1 = new Plate(20);
         Cat[] cat = new Cat[]{
                 new Cat("Тишка", 5),
                 new Cat("Несси", 7),
